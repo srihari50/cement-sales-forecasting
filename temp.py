@@ -19,8 +19,6 @@ if data is not None:
   st.write(df)
   train = df.iloc[:84]
   test = df.iloc[84:]
-  train = train.rename(columns={'Sales_Quantity_Billiontonnes': 'y', 'Date':'ds'})
-  test = test.rename(columns={'Sales_Quantity_Billiontonnes': 'y', 'Date':'ds'})
   if train is not None:
      model = Prophet()
      model.fit(train)
