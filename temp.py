@@ -16,7 +16,7 @@ if data is not None:
   df = df.rename(columns={'Sales_Quantity_Milliontonnes': 'y', 'Date':'ds'})
   df['ds'] = pd.to_datetime(df['ds']) 
 
-  st.write(appdata)
+  st.write(df)
 train = df.iloc[:84]
 stest = df.iloc[84:]
 	
