@@ -45,40 +45,40 @@ if uploaded_file is not None:
 	df = df.set_index(pd.DatetimeIndex(df['Date'].values))
 	return df.iloc[start_row:end_row+1, :]
 
-start, end, period = get_input()
-data = get_data(start, end)
+	start, end, period = get_input()
+	data = get_data(start, end)
 
-st.subheader("Data")
-st.write("First 5 Columns")
-st.write(data.head())
-st.write("Last 5 Columns")
-st.write(data.tail())
+	st.subheader("Data")
+	st.write("First 5 Columns")
+	st.write(data.head())
+	st.write("Last 5 Columns")
+	st.write(data.tail())
 
-st.subheader('Close Price')
-st.write("Zoom In/Zoom Out for better visualization.")
-st.line_chart(data[['Open', 'Close']])
+	st.subheader('Close Price')
+	st.write("Zoom In/Zoom Out for better visualization.")
+	st.line_chart(data[['Open', 'Close']])
 
-st.subheader("Volume")
-st.write("Zoom In/Zoom Out for better visualization.")
-st.line_chart(data['Volume'])
+	st.subheader("Volume")
+	st.write("Zoom In/Zoom Out for better visualization.")
+	st.line_chart(data['Volume'])
 
-st.header("Prediction")
+	st.header("Prediction")
 
-def model_np():
-	m = pickle.load(open('Prophet.pkl', 'rb'))
+	def model_np():
+		m = pickle.load(open('Prophet.pkl', 'rb'))
 
-	st.subheader("Prophet")
-	df = data.copy()
-	df.reset_index(inplace=True)
-	df_train = df[['Date','Close']]
-	df_train = df_train.rename(columns={"Date": "ds", "Close": "y"})
+		st.subheader("Prophet")
+		df = data.copy()
+		df.reset_index(inplace=True)
+		df_train = df[['Date','Close']]
+		df_train = df_train.rename(columns={"Date": "ds", "Close": "y"})
 
-	forecast = m.predict(future)
-	forecast = forecast.rename(columns={"ds": "Date", "yhat1": "Close"})
-	st.write("Forecasting of Etheruem Close Price from 14-09-2021 to 18-09-2021")
-	st.write(forecast[['Date', 'Close']].head())
-	st.write(f"Forecasting of Close Price of {period} days")
-	st.line_chart(forecast['Close'])
+		forecast = m.predict(future)
+		forecast = forecast.rename(columns={"ds": "Date", "yhat1": "Close"})
+		st.write("Forecasting of Etheruem Close Price from 14-09-2021 to 18-09-2021")
+		st.write(forecast[['Date', 'Close']].head())
+		st.write(f"Forecasting of Close Price of {period} days")
+		st.line_chart(forecast['Close'])
 
-model_np()
+	model_np()
 
