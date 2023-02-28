@@ -37,6 +37,3 @@ if data is not None:
 
   test_forecasts = pd.DataFrame(test_forecasts[['yhat', 'yhat_upper', 'yhat_lower', 'Order_Quantity_Milliontonnes']])
   st.write(test_forecasts)
-
-  figure2 = plot_plotly(model, test_forecasts)
-  st.write(figure2)
