@@ -23,7 +23,7 @@ if data is not None:
   test_df = test.drop(['y'], axis=1)
   test_forecasts = model.predict(test_df)
 
-if test_df is not None:
+  if test_df is not None:
      obj = Prophet()
      obj.fit(test_df)
 
