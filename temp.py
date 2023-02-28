@@ -17,8 +17,8 @@ if data is not None:
   df['ds'] = pd.to_datetime(df['ds']) 
 
   st.write(df)
-train = df.iloc[:84]
-stest = df.iloc[84:]
+  train = df.iloc[:84]
+  test = df.iloc[84:]
 	
 
 test = test.rename(columns={'Sales_Quantity_Milliontonnes': 'y', 'Date':'ds'})
