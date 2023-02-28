@@ -29,7 +29,6 @@ if data is not None:
      model.add_regressor('Coal_Milliontonne')
      model.add_regressor('Home_Interest_Rate')
      model.add_regressor('Trasportation_Cost')
-     model.add_regressor('Order_Quantity_Milliontonnes')
      model.add_regressor('Unit_Price')
      model.fit(train)
      test_df = test.drop(['y'], axis=1)
