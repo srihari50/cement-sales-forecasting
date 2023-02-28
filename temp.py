@@ -13,13 +13,11 @@ st.title('Cement Sales Forecasting')
 data = st.file_uploader(' ',type='Xlsx')
 if data is not None:
   df = pd.read_excel(data)
-  df = df.rename(columns={'Sales_Quantity_Billiontonnes': 'y'})
-  df = df.rename(columns={'Date':'ds'})
+  df = df.rename(columns={'Date':'ds', 'Sales_Quantity_Milliontonnes': 'y'})
   df['ds'] = pd.to_datetime(df['ds']) 
 
   st.write(df)
   train = df.iloc[:84]
-  st.write(train)
   test = df.iloc[84:]
   if train is not None:
      model = Prophet()
