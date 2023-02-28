@@ -26,7 +26,7 @@ if data is not None:
      test_forecasts = model.predict(test_df)
 
   test_forecasts = pd.DataFrame(test_forecasts[['yhat', 'yhat_upper', 'yhat_lower']])
-  st.write(test_forecast)
+  st.write(test_forecasts)
 
   figure1 = model.plot(test_forecasts)
   st.write(figure1)
