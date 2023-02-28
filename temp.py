@@ -27,8 +27,8 @@ if data is not None:
      obj = Prophet()
      obj.fit(test_df)
 
-test_forecasts = pd.DataFrame(test_forecasts[['yhat', 'yhat_upper', 'yhat_lower', 'Order_Quantity_Milliontonnes']])
-st.write(test_forecast)
+  test_forecasts = pd.DataFrame(test_forecasts[['yhat', 'yhat_upper', 'yhat_lower', 'Order_Quantity_Milliontonnes']])
+  st.write(test_forecast)
 
 figure1 = model.plot(test_forecasts)
 st.write(figure1)
