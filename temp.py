@@ -21,6 +21,16 @@ if data is not None:
   test = df.iloc[84:]
   if train is not None:
      model = Prophet()
+     model.add_regressor('GDP_Construction_Rs_Crs')
+     model.add_regressor('GDP_Realestate_Rs_Crs')
+     model.add_regressor('Oveall_GDP_Growth%')
+     model.add_regressor('Water_Source')
+     model.add_regressor('Limestone')
+     model.add_regressor('Coal_Milliontonne')
+     model.add_regressor('Home_Interest_Rate')
+     model.add_regressor('Trasportation_Cost')
+     model.add_regressor('Order_Quantity_Milliontonnes')
+     model.add_regressor('Unit_Price')
      model.fit(train)
      test_df = test.drop(['y'], axis=1)
      test_forecasts = model.predict(test_df)
