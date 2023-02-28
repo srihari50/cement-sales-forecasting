@@ -20,12 +20,11 @@ if data is not None:
   train = df.iloc[:84]
   test = df.iloc[84:]
   test = test.rename(columns={'Sales_Quantity_Milliontonnes': 'y', 'Date':'ds'})
-  test_df = test.drop(['y'], axis=1)
-  test_forecasts = model.predict(test_df)
-
-  if test_df is not None:
-     obj = Prophet()
-     obj.fit(test_df)
+  if train_df is not None:
+     model = Prophet()
+     model.fit(train_df)
+     test_df = test.drop(['y'], axis=1)
+     test_forecasts = model.predict(test_df)
 
   test_forecasts = pd.DataFrame(test_forecasts[['yhat', 'yhat_upper', 'yhat_lower', 'Order_Quantity_Milliontonnes']])
   st.write(test_forecast)
