@@ -30,8 +30,8 @@ if data is not None:
   test_forecasts = pd.DataFrame(test_forecasts[['yhat', 'yhat_upper', 'yhat_lower', 'Order_Quantity_Milliontonnes']])
   st.write(test_forecast)
 
-figure1 = model.plot(test_forecasts)
-st.write(figure1)
+  figure1 = model.plot(test_forecasts)
+  st.write(figure1)
 
-figure2 = plot_plotly(model, test_forecasts)
-st.write(figure2)
+  figure2 = plot_plotly(model, test_forecasts)
+  st.write(figure2)
