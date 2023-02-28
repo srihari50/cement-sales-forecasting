@@ -19,11 +19,9 @@ if data is not None:
   st.write(df)
   train = df.iloc[:84]
   test = df.iloc[84:]
-	
-
-test = test.rename(columns={'Sales_Quantity_Milliontonnes': 'y', 'Date':'ds'})
-test_df = test.drop(['y'], axis=1)
-test_forecasts = model.predict(test_df)
+  test = test.rename(columns={'Sales_Quantity_Milliontonnes': 'y', 'Date':'ds'})
+  test_df = test.drop(['y'], axis=1)
+  test_forecasts = model.predict(test_df)
 
 if test_df is not None:
      obj = Prophet()
