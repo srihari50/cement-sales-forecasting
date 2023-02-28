@@ -24,8 +24,10 @@ def get_input():
 START = "2023-01-31"
 TODAY = date.today().strftime("%Y-%M-%d")
 
-def get_data(start, end):
-	df = pd.read_excel(r'C:\Users\sriha\Desktop\cement project\All India_Features.xlsx')
+uploaded_file = st.file_uploader(" ", type = ['xlsx'])
+
+if uploaded_file is not None:
+	df = pd.read_excel(Uploaded_file)
 	start = pd.to_datetime(start)
 	end = pd.to_datetime(end)
 	start_row = 0
