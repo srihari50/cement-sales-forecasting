@@ -46,20 +46,7 @@ def get_data(start, end):
 start, end, period = get_input()
 data = get_data(start, end)
 
-st.subheader("Data")
-st.write("First 5 Columns")
-st.write(data.head())
-st.write("Last 5 Columns")
-st.write(data.tail())
-   
-st.subheader('Close Price')
-st.write("Zoom In/Zoom Out for better visualization.")
-st.line_chart(data[['Sales_Quantity_Billiontonnes', 'Order_Quantity_Billiontonnes']])
 
-st.subheader("Volume")
-st.write("Zoom In/Zoom Out for better visualization.")
-st.line_chart(data['Volume'])
-    
     
     
     
