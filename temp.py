@@ -13,20 +13,20 @@ st.title('Cement Sales Forecasting')
 data = st.file_uploader(' ',type='Xlsx')
 if data is not None:
   df = pd.read_excel(data)
-  df = df.rename(columns={'Sales_Quantity_Milliontonnes': 'y', 'Date':'ds'})
+  df = df.rename(columns={'Sales_Quantity_Billiontonnes': 'y', 'Date':'ds'})
   df['ds'] = pd.to_datetime(df['ds']) 
 
   st.write(df)
   train = df.iloc[:84]
   test = df.iloc[84:]
-  test = test.rename(columns={'Sales_Quantity_Milliontonnes': 'y', 'Date':'ds'})
+  test = test.rename(columns={'Sales_Quantity_Billiontonnes': 'y', 'Date':'ds'})
   if train is not None:
      model = Prophet()
      model.fit(train)
      test_df = test.drop(['y'], axis=1)
      test_forecasts = model.predict(test_df)
 
-  test_forecasts = pd.DataFrame(test_forecasts[['yhat', 'yhat_upper', 'yhat_lower', 'Order_Quantity_Milliontonnes']])
+  test_forecasts = pd.DataFrame(test_forecasts[['yhat', 'yhat_upper', 'yhat_lower', 'Order_Quantity_Billiontonnes']])
   st.write(test_forecast)
 
   figure1 = model.plot(test_forecasts)
