@@ -12,9 +12,9 @@ st.title('Cement Sales Forecasting')
 
 data = st.file_uploader(' ',type='Xlsx')
 if data is not None:
-  appdata = pd.read_excel(data)
-  appdata = appdata.rename(columns={'Sales_Quantity_Milliontonnes': 'y', 'Date':'ds'})
-  appdata['ds'] = pd.to_datetime(appdata['ds']) 
+  df = pd.read_excel(data)
+  df = df.rename(columns={'Sales_Quantity_Milliontonnes': 'y', 'Date':'ds'})
+  df['ds'] = pd.to_datetime(df['ds']) 
 
   st.write(appdata)
 train = df.iloc[:84]
