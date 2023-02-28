@@ -19,6 +19,7 @@ if data is not None:
 
   st.write(df)
   train = df.iloc[:84]
+  st.write(train)
   test = df.iloc[84:]
   if train is not None:
      model = Prophet()
