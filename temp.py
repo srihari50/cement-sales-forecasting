@@ -35,7 +35,7 @@ if data is not None:
      test_df = test.drop(['y'], axis=1)
      test_forecasts = model.predict(test_df)
 
-  test_forecasts = pd.DataFrame(test_forecasts[['yhat', 'yhat_upper', 'yhat_lower']])
+  test_forecasts = pd.DataFrame(test_forecasts[['yhat', 'yhat_upper', 'yhat_lower', 'Order_Quantity_Milliontonnes']])
   st.write(test_forecasts)
 
   figure1 = model.plot_components(test_forecasts)
