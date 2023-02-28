@@ -28,6 +28,7 @@ if data is not None:
      model.add_regressor('Limestone')
      model.add_regressor('Coal_Milliontonne')
      model.add_regressor('Home_Interest_Rate')
+     model.add_regressor('Order_Quantity_Milliontonnes')
      model.add_regressor('Trasportation_Cost')
      model.add_regressor('Unit_Price')
      model.fit(train)
