@@ -50,7 +50,7 @@ if data is not None:
   forecasts = forecasts.tail(12)
   st.write(forecasts)
 
-figure1 = model.plot(test_forecast)
+figure1 = model.plot(test_forecasts)
 st.write(figure1)
 
 figure2 = plot_plotly(model, test_forecasts)
