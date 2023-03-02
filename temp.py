@@ -47,4 +47,5 @@ if data is not None:
      test_forecasts = model.predict(test_df)
 
   test_forecasts = pd.DataFrame(test_forecasts[['ds', 'yhat', 'yhat_upper', 'yhat_lower']])
+  test forecasts = test_forecasts.tail(12)
   st.write(test_forecasts)
