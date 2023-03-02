@@ -48,7 +48,7 @@ if data is not None:
 
   forecasts = pd.DataFrame(test_forecasts[['ds', 'yhat', 'yhat_upper', 'yhat_lower']])
   forecasts = forecasts.tail(12)
-st.header('Forecasts')
+  st.header('Forecasts')
   st.write(forecasts)
 
 figure1 = model.plot(test_forecasts)
