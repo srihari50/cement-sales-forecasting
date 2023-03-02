@@ -17,8 +17,8 @@ if data is not None:
   df['ds'] = pd.to_datetime(df['ds']) 
 
   st.write(df)
-  train = df.iloc[:96]
-  test = df.iloc[96:]
+  train = df.iloc[:84]
+  test = df.iloc[84:]
   if train is not None:
      model = Prophet()
      model.add_regressor('GDP_Construction_Rs_Crs')
