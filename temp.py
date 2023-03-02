@@ -46,6 +46,12 @@ if data is not None:
   if test_df is not None:
      test_forecasts = model.predict(test_df)
 
-  test_forecasts = pd.DataFrame(test_forecasts[['ds', 'yhat', 'yhat_upper', 'yhat_lower']])
-  test_forecasts = test_forecasts.tail(12)
-  st.write(test_forecasts)
+  forecasts = pd.DataFrame(test_forecasts[['ds', 'yhat', 'yhat_upper', 'yhat_lower']])
+  forecasts = test_forecasts.tail(12)
+  st.write(forecasts)
+
+figure1 = obj.plot(test_forecast)
+st.write(figure1)
+
+figure2 = plot_plotly(model, test_forecasts)
+st.write(figure2)
