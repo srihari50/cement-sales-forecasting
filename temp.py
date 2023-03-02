@@ -33,7 +33,7 @@ if data is not None:
      model.add_regressor('Unit_Price')
      model.fit(train)
      test_df = test.drop(['y'], axis=1)
-  if test_df not None:
+  if test_df is not None:
      test_forecasts = model.predict(test_df)
 
   test_forecasts = pd.DataFrame(test_forecasts[['ds', 'yhat', 'yhat_upper', 'yhat_lower']])
