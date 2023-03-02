@@ -5,7 +5,7 @@ import pandas as pd
 from PIL import Image
 import pickle
 import numpy as np
-import feature_engine
+from feature_engine.outliers import Winsorizer
 from prophet import Prophet
 from prophet.plot import plot_plotly
 
