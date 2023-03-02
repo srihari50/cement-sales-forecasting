@@ -5,6 +5,7 @@ import pandas as pd
 from PIL import Image
 import pickle
 import numpy as np
+import feature_engine
 from prophet import Prophet
 from prophet.plot import plot_plotly
 
@@ -15,7 +16,17 @@ if data is not None:
   df = pd.read_excel(data)
   df = df.rename(columns={'Date':'ds', 'Sales_Quantity_Milliontonnes': 'y'})
   df['ds'] = pd.to_datetime(df['ds']) 
+  
+  from feature_engine.outliers import Winsorizer
+winsor = Winsorizer(capping_method='iqr', tail='both', fold=1.5, variables=['GDP_Construction_Rs_Crs', 'Oveall_GDP_Growth%',
+                    'Coal_Milliontonne', 'Home_Interest_Rate'])
 
+df[['GDP_Construction_Rs_Crs', 'Oveall_GDP_Growth%', 'Coal_Milliontonne', 'Home_Interest_Rate']] = winsor.fit_transform(df[['GDP_Construction_Rs_Crs',
+                                                                          'Oveall_GDP_Growth%', 'Coal_Milliontonne', 'Home_Interest_Rate']])
+df
+  
+  
+  
   st.write(df)
   train = df.iloc[:84]
   test = df.iloc[84:]
