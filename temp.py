@@ -18,14 +18,11 @@ if data is not None:
   df['ds'] = pd.to_datetime(df['ds']) 
   
   from feature_engine.outliers import Winsorizer
-winsor = Winsorizer(capping_method='iqr', tail='both', fold=1.5, variables=['GDP_Construction_Rs_Crs', 'Oveall_GDP_Growth%',
+  winsor = Winsorizer(capping_method='iqr', tail='both', fold=1.5, variables=['GDP_Construction_Rs_Crs', 'Oveall_GDP_Growth%',
                     'Coal_Milliontonne', 'Home_Interest_Rate'])
 
-df[['GDP_Construction_Rs_Crs', 'Oveall_GDP_Growth%', 'Coal_Milliontonne', 'Home_Interest_Rate']] = winsor.fit_transform(df[['GDP_Construction_Rs_Crs',
+  df[['GDP_Construction_Rs_Crs', 'Oveall_GDP_Growth%', 'Coal_Milliontonne', 'Home_Interest_Rate']] = winsor.fit_transform(df[['GDP_Construction_Rs_Crs',
                                                                           'Oveall_GDP_Growth%', 'Coal_Milliontonne', 'Home_Interest_Rate']])
-df
-  
-  
   
   st.write(df)
   train = df.iloc[:84]
