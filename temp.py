@@ -49,7 +49,7 @@ if data is not None:
      test_forecasts = model.predict(test_df)
 
   forecasts = pd.DataFrame(test_forecasts[['ds', 'yhat', 'yhat_upper', 'yhat_lower']])
-  Forecast.rename(columns = {'ds' : 'Date', 'yhat' : 'Sales_Forecast', 'yhat_upper' : 'Sales_Max_Forecast', 'yhat_lower' : 'Sales_Min_Forecast'}, inplace = True)
+  forecasts.rename(columns = {'ds' : 'Date', 'yhat' : 'Sales_Forecast', 'yhat_upper' : 'Sales_Max_Forecast', 'yhat_lower' : 'Sales_Min_Forecast'}, inplace = True)
   forecasts = forecasts.tail(12)
   st.header('Forecasts')
   st.write(forecasts)
