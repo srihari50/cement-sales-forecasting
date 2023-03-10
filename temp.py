@@ -6,7 +6,7 @@ from PIL import Image
 import pickle
 import numpy as np
 from feature_engine.outliers import Winsorizer
-Import pandas_profiling
+from pandas_profiling import ProfileReport
 from prophet import Prophet
 from prophet.plot import plot_plotly
 
@@ -28,6 +28,10 @@ if data is not None:
                                                                           'Oveall_GDP_Growth%', 'Coal_Milliontonne', 'Home_Interest_Rate']])
   
   st.write(df)
+  
+  profile = ProfileReport(df, tsmode=True, sortby="Date")
+  st.write(profile)
+
   train = df.iloc[:84]
   test = df.iloc[84:]
   if train is not None:
