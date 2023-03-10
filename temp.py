@@ -21,7 +21,7 @@ if data is not None:
   
   from pandas_profiling import ProfileReport
   
-  profile = ProfileReport(df, tsmode=True, sortby="Date")
+  profile = ProfileReport(df, tsmode=True, sortby="ds")
   st.title("Pandas Profiling Report")
   st_profile_report(profile)
   
