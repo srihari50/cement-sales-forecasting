@@ -29,7 +29,7 @@ if data is not None:
   
   st.write(df)
   
-  profile = ProfileReport(df, tsmode=True, sortby="Date")
+  profile = ProfileReport(df, tsmode=True, sortby="ds")
   st.write(profile)
 
   train = df.iloc[:84]
