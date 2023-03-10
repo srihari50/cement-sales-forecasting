@@ -61,6 +61,6 @@ if data is not None:
   st.header('Forecasts')
   st.write(forecasts)
 
-
-figure2 = plot_plotly(model, test_forecasts, xlabel = 'Date', ylabel = 'Sales_Milliontonnes')
-st.write(figure2)
+  st.header('Sales Graph')
+  figure2 = plot_plotly(model, test_forecasts, xlabel = 'Date', ylabel = 'Sales_Milliontonnes')
+  st.write(figure2)
