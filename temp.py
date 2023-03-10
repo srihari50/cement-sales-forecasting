@@ -7,6 +7,7 @@ import pickle
 import numpy as np
 from feature_engine.outliers import Winsorizer
 from pandas_profiling import ProfileReport
+from streamlit_pandas_profiling import st_profile_report
 from prophet import Prophet
 from prophet.plot import plot_plotly
 
@@ -19,6 +20,10 @@ if data is not None:
   df['ds'] = pd.to_datetime(df['ds']) 
   
   from pandas_profiling import ProfileReport
+  
+  profile = ProfileReport(df, tsmode=True, sortby="Date")
+  st.title("Pandas Profiling Report")
+  st_profile_report(profile)
   
   from feature_engine.outliers import Winsorizer
   winsor = Winsorizer(capping_method='iqr', tail='both', fold=1.5, variables=['GDP_Construction_Rs_Crs', 'Oveall_GDP_Growth%',
