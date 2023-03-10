@@ -7,4 +7,4 @@ plotly==5.13.0
 streamlit==1.17.0
 openpyxl==3.0.3
 feature_engine==1.5.2
-Pandas_Profiling==3.6.6
+pandas_profiling==3.6.6
