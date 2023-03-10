@@ -6,6 +6,7 @@ from PIL import Image
 import pickle
 import numpy as np
 from feature_engine.outliers import Winsorizer
+Import pandas_profiling
 from prophet import Prophet
 from prophet.plot import plot_plotly
 
