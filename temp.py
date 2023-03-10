@@ -18,6 +18,11 @@ if data is not None:
   df = df.rename(columns={'Date':'ds', 'Sales_Quantity_Milliontonnes': 'y'})
   df['ds'] = pd.to_datetime(df['ds']) 
   
+  from pandas_profiling import ProfileReport
+
+  profile = ProfileReport(df, tsmode=True, sortby="Date")
+  profile
+  
   from feature_engine.outliers import Winsorizer
   winsor = Winsorizer(capping_method='iqr', tail='both', fold=1.5, variables=['GDP_Construction_Rs_Crs', 'Oveall_GDP_Growth%',
                     'Coal_Milliontonne', 'Home_Interest_Rate'])
