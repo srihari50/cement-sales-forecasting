@@ -28,9 +28,6 @@ if data is not None:
                                                                           'Oveall_GDP_Growth%', 'Coal_Milliontonne', 'Home_Interest_Rate']])
   
   st.write(df)
-  
-  profile = ProfileReport(df, tsmode=True, sortby="ds")
-  st.write(profile)
 
   train = df.iloc[:84]
   test = df.iloc[84:]
